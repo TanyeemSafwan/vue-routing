@@ -1,47 +1,41 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import carsData from './data.json';
+import { ref } from "vue";
+
+const cars = ref(carsData);
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <main class="container">
+    <h1>Our Cars</h1>
+    <div class="cards">
+      <div v-for="car in cars" :key="car.id" class="card">
+        <h1>{{ car.make }}</h1>
+        <p>{{ car.price }}</p>
+      </div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.cards {
+  display: flex;
+  width: 1000px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.card {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.207);
+  padding: 15px;
+  width: 150px;
+  margin-right: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.links {
+  padding: 20x;
 }
 </style>
