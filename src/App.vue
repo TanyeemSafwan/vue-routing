@@ -7,6 +7,10 @@ const cars = ref(carsData);
 
 <template>
   <main class="container">
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </div>
     <h1>Our Cars</h1>
     <div class="cards">
       <div v-for="car in cars" :key="car.id" class="card">
@@ -36,6 +40,10 @@ const cars = ref(carsData);
 }
 
 .links {
-  padding: 20x;
+  padding: 20px;
+}
+
+.links a {
+  margin: 0 5px;
 }
 </style>
